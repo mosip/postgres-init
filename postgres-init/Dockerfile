@@ -19,7 +19,7 @@ COPY ./repos/audit-manager/db_scripts .
 COPY ./repos/resident-services/db_scripts .
 COPY ./repos/mosip-compliance-toolkit/db_scripts .
 COPY ./repos/digital-card-service/db_scripts .
-COPY ./repos/idp/db_scripts .
+COPY ./repos/esignet/db_scripts .
 
 
 ENV MOSIP_DB_NAME=
@@ -38,18 +38,8 @@ ENV DBUSER_PWD=
 
 ENV DML_FLAG=
 
-ENV ENV_VERSION_FLAG=false
 
 WORKDIR /home/mosip/repos/db_scripts/
 
-CMD if [ "$ENV_VERSION_FLAG" = "false" ]; then \
-  cd $MOSIP_DB_NAME;bash deploy.sh ; \
-  elif [ "$ENV_VERSION_FLAG" = "true" ] && [ "$MOSIP_DB_NAME" = "mosip_pms" ]; then  \
-  cd $MOSIP_DB_NAME ; \
-  echo "EXECUTING SED COMMAND"; \
-  sed -i "s/datashare.datashare/datashare-service/g" dml/pms-auth_policy.csv ; \
-  sed -i "s/datashare.datashare/datashare-service/g" dml/pms-auth_policy_h.csv ; \
-  bash deploy.sh ; \
-  else \
-  cd $MOSIP_DB_NAME;bash deploy.sh ; \
-  fi
+CMD cd $MOSIP_DB_NAME;bash deploy.sh ;
+
