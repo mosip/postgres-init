@@ -15,7 +15,11 @@ elif [ $REPO_NAME == "digital-card-service" ]
 then
 branch=develop
 git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
-elif [ $REPO_NAME == "idp" ]
+elif [ $REPO_NAME == "esignet" ]
+then
+branch=1.0.0
+git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
+elif [ $REPO_NAME == "mosip_mockidentitysystem" ]
 then
 branch=0.9.0
 git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
