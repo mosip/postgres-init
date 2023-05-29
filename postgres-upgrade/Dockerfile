@@ -29,14 +29,14 @@ ENV CURRENT_VERSION=
 ENV UPGRADE_VERSION=
 ENV ACTION=
 
-CMD while IFS=',' read -r MOSIP_DB_NAME CURRENT_VERSION UPGRADE_VERSION ACTION ;\
+CMD ["/bin/bash", "-c", "while IFS=',' read -r MOSIP_DB_NAME CURRENT_VERSION UPGRADE_VERSION ACTION ;\
     do \
     cd /home/mosip/repos/db_upgrade_scripts ;\
-    echo "DB=" $MOSIP_DB_NAME ; \
-    echo "CV=" $CURRENT_VERSION ;\
-    echo "UV=" $UPGRADE_VERSION ;\
-    echo "ACTION=" $ACTION ;\
-    cd "$MOSIP_DB_NAME"; \
+    echo \"DB=\" $MOSIP_DB_NAME ; \
+    echo \"CV=\" $CURRENT_VERSION ;\
+    echo \"UV=\" $UPGRADE_VERSION ;\
+    echo \"ACTION=\" $ACTION ;\
+    cd \"$MOSIP_DB_NAME\"; \
     bash upgrade.sh || exit 1 ; \
-    echo Upgrade script execution completed for "$CURRENT_VERSION" to "$UPGRADE_VERSION" version for "$MOSIP_DB_NAME" database. Please check the above logs for any kind of issues, Warnings and details of execution. ; \
-    done <<< $( cat upgrade.csv )
+    echo Upgrade script execution completed for \"$CURRENT_VERSION\" to \"$UPGRADE_VERSION\" version for \"$MOSIP_DB_NAME\" database. Please check the above logs for any kind of issues, Warnings and details of execution. ; \
+    done <<< $( cat upgrade.csv )"]
