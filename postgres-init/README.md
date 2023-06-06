@@ -1,11 +1,14 @@
 # Postgres Upgrade
+
 ## Overview
 * Used to upgrade the schemas and required data from one MOSIP version to another.
 * It can upgrade one version at a time.
-* In case the need is to upgrade multiple versions, the same needs to be updated sequentially in upgrade.csv.
+* In case, you want to upgrade multiple versions, the same needs to be updated sequentially in upgrade.csv.
+
 ## Install
+
 ### Docker
-* Make sure docker is installed and user has ncessary priviledge to run docker commands.
+* Make sure docker is installed and the user has the necessary privileges to run docker commands.
 *  Set below mentioned ENV variables in the system:
    * DB_SERVERIP
    * DB_PORT
@@ -27,5 +30,6 @@ docker run -itd --name upgrade-db \
        -v ./upgrade.csv:/home/mosip/repos/db_upgrade_scripts/upgrade.csv \
        mosipid/postgres-upgrade:<tag>
 ```
+
 ### K8 cluster
-To install in a k8 cluster using defined helm charts refer to the infra [install scripts](https://github.com/mosip/mosip-infra/tree/develop/deployment/v3/external/postgres#db-upgrade):
+To install in a k8 cluster using defined helm charts refer to the infra [install scripts](https://github.com/mosip/mosip-infra/tree/develop/deployment/v3/external/postgres#db-upgrade).
