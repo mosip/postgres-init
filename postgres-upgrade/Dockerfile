@@ -1,8 +1,7 @@
 FROM postgres
 
-RUN apt-get update && \
-    apt-get install -y python3 python3-pip libpq-dev python-dev && \
-    pip3 install xlrd psycopg2-binary
+RUN apt-get update && apt-get install -y python3 python3-pip libpq-dev python3-dev python3-xlrd python3-psycopg2
+
 WORKDIR /home/mosip/repos/db_upgrade_scripts
 
 VOLUME /home/mosip/repos/db_upgrade_scripts/upgrade.csv
