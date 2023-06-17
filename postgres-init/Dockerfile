@@ -1,9 +1,8 @@
 FROM postgres
 
 RUN apt-get update
-RUN apt-get install -y python3
+RUN apt-get install -y python3 python3-xlrd
 RUN apt-get install -y python3-pip
-RUN pip3 install xlrd
 
 WORKDIR /home/mosip/repos/db_scripts
 
