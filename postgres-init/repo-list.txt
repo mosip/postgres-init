@@ -10,4 +10,5 @@ audit-manager
 resident-services
 mosip-compliance-toolkit
 digital-card-service
-idp
+esignet
+esignet-mock-services

@@ -2,6 +2,9 @@
 
 while IFS= read -r line; do
 REPO_NAME=$line
+if [ -z $line ]; then
+  continue;
+fi
 if  [ $REPO_NAME == "resident-services" ]
 then
 echo $REPO_NAME
@@ -15,7 +18,11 @@ elif [ $REPO_NAME == "digital-card-service" ]
 then
 branch=develop
 git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
-elif [ $REPO_NAME == "idp" ]
+elif [ $REPO_NAME == "esignet" ]
+then
+branch=1.0.0
+git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
+elif [ $REPO_NAME == "esignet-mock-services" ]
 then
 branch=0.9.0
 git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
