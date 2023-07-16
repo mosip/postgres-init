@@ -6,5 +6,5 @@ id-authentication
 partner-management-services
 admin-services
 resident-services
-keymanager
 audit-manager
+keymanager
