@@ -7,5 +7,4 @@ partner-management-services
 admin-services
 keymanager
 audit-manager
-resident-services
 #
