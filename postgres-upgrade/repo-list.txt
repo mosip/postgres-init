@@ -7,4 +7,5 @@ partner-management-services
 admin-services
 resident-services
 audit-manager
+mosip-compliance-toolkit
 keymanager
