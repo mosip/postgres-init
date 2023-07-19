@@ -12,7 +12,7 @@ branch=1.2.0.1-B2
 git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
 elif [ $REPO_NAME == "mosip-compliance-toolkit" ]
 then
-branch=v0.0.9
+branch=release-1.x.x
 git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
 elif [ $REPO_NAME == "digital-card-service" ]
 then
