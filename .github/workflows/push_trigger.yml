@@ -7,6 +7,7 @@ on:
       - 1.*
       - develop
       - release*
+      - ckm*
 
 jobs:
   build-postgres-init-docker:
