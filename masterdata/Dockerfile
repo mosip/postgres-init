@@ -1,6 +1,4 @@
 FROM python:3.10
-
-ARG branch=develop
 ARG SOURCE
 ARG COMMIT_HASH
 ARG COMMIT_ID
@@ -9,6 +7,8 @@ LABEL source=${SOURCE}
 LABEL commit_hash=${COMMIT_HASH}
 LABEL commit_id=${COMMIT_ID}
 LABEL build_time=${BUILD_TIME}
+
+ARG branch=develop
 
 ARG container_user=mosip
 ARG container_user_group=mosip
