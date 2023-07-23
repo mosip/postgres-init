@@ -8,6 +8,7 @@ LABEL source=${SOURCE}
 LABEL commit_hash=${COMMIT_HASH}
 LABEL commit_id=${COMMIT_ID}
 LABEL build_time=${BUILD_TIME}
+
 RUN apt-get update
 RUN apt-get install -y python3 python3-xlrd
 RUN apt-get install -y python3-pip
