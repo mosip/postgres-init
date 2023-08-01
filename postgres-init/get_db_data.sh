@@ -20,7 +20,7 @@ branch=develop
 git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
 elif [ $REPO_NAME == "esignet" ]
 then
-branch=1.0.0
+branch=v1.0.0
 git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
 elif [ $REPO_NAME == "esignet-mock-services" ]
 then
