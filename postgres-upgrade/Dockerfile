@@ -3,9 +3,9 @@ FROM postgres
 RUN apt-get update
 RUN apt-get install -y python3
 RUN apt-get install -y python3-pip
-RUN pip3 install xlrd
-RUN apt-get install -y libpq-dev python-dev
-RUN pip3 install psycopg2
+RUN apt-get install -y python3-xlrd
+RUN apt-get install -y libpq-dev python3-dev
+RUN apt-get install -y python3-psycopg2
 WORKDIR /home/mosip/repos/db_release_scripts
 
 COPY ./repos/commons/db_release_scripts .
