@@ -1,0 +1,89 @@
+name: Build postgres-init and masterdata-loader
+
+on:
+  release:
+    types: [published]
+  repository_dispatch:
+    types: [ db-event ]
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Message for manually triggering'
+        required: false
+        default: 'Triggered for Updates'
+        type: string
+  push:
+    branches:
+      - master
+      - 1.*
+      - develop
+      - release*
+
+jobs:
+  clone-db-repos:
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    env:
+      SERVICE_LOCATION: postgres-init
+      BUILD_ARTIFACT: postgres-init
+    steps:
+      - name: Setup branch and env
+        run: |
+          DB_BRANCH=${{ github.event.client_payload.ref }}
+          BRANCH_NAME=$( echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,' )
+          BRANCH_NAME=${DB_BRANCH:-$BRANCH_NAME}
+          
+          # Strip git ref prefix from version
+          BRANCH_NAME=$( echo $BRANCH_NAME | sed -e 's,.*/\(.*\),\1,' )
+          echo "BRANCH_NAME=$(echo $BRANCH_NAME )"
+          echo "BRANCH_NAME=$(echo $BRANCH_NAME )" >> $GITHUB_ENV
+          echo "GPG_TTY=$(tty)" >> $GITHUB_ENV
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ env.BRANCH_NAME }}
+      - name: clone all repos
+        run: |
+          cd "${{env.SERVICE_LOCATION}}"
+          chmod +x ./get_db_data.sh
+          bash ./get_db_data.sh ${{ env.BRANCH_NAME }}
+      - name: Zip only db_scripts from DB repos
+        run: |
+          cd ${{env.SERVICE_LOCATION}}
+          find repos -path '*/db_scripts/*' -type d -executable -exec zip ${{ env.BUILD_ARTIFACT }}.zip {} +
+      - name: Upload cloned repos to artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.BUILD_ARTIFACT }}
+          path: ${{env.SERVICE_LOCATION}}/${{ env.BUILD_ARTIFACT }}.zip
+      - uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,author,commit,workflow,job # selectable (default: repo,message)
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
+        if: failure() # Pick up events even if the job fails or is canceled.
+
+  build-dockers:
+    needs: clone-db-repos
+    strategy:
+      matrix:
+        include:
+          - SERVICE_LOCATION: 'postgres-init'
+            SERVICE_NAME: 'postgres-init'
+            BUILD_ARTIFACT: 'postgres-init'
+            ONLY_DOCKER: true
+          - SERVICE_LOCATION: 'masterdata'
+            SERVICE_NAME: 'masterdata-loader'
+      fail-fast: false
+    uses: mosip/kattu/.github/workflows/docker-build.yml@master
+    with:
+      SERVICE_LOCATION: ${{ matrix.SERVICE_LOCATION }}
+      SERVICE_NAME: ${{ matrix.SERVICE_NAME }}
+      BUILD_ARTIFACT: ${{ matrix.BUILD_ARTIFACT || false }}
+      ONLY_DOCKER: ${{ matrix.ONLY_DOCKER || false }}
+    secrets:
+      DEV_NAMESPACE_DOCKER_HUB: ${{ secrets.DEV_NAMESPACE_DOCKER_HUB }}
+      ACTOR_DOCKER_HUB: ${{ secrets.ACTOR_DOCKER_HUB }}
+      RELEASE_DOCKER_HUB: ${{ secrets.RELEASE_DOCKER_HUB }}
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_DEVOPS }}
