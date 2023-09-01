@@ -1,5 +1,14 @@
 FROM postgres
 
+ARG SOURCE
+ARG COMMIT_HASH
+ARG COMMIT_ID
+ARG BUILD_TIME
+LABEL source=${SOURCE}
+LABEL commit_hash=${COMMIT_HASH}
+LABEL commit_id=${COMMIT_ID}
+LABEL build_time=${BUILD_TIME}
+
 RUN apt-get update && apt-get install -y python3 python3-pip libpq-dev python3-dev python3-xlrd python3-psycopg2
 
 WORKDIR /home/mosip/repos/db_upgrade_scripts
@@ -15,12 +24,14 @@ COPY ./repos/partner-management-services/db_upgrade_scripts .
 COPY ./repos/admin-services/db_upgrade_scripts .
 COPY ./repos/keymanager/db_upgrade_scripts .
 COPY ./repos/audit-manager/db_upgrade_scripts .
+COPY ./repos/resident-services/db_upgrade_scripts .
 
 ENV MOSIP_DB_NAME=
 ENV DB_SERVERIP=
 ENV DB_PORT=
 ENV SU_USER=postgres
 ENV SU_USER_PWD=
+ENV DB_USER_PWD=
 ENV PRIMARY_LANGUAGE_CODE=
 ENV DEFAULT_DB_NAME=postgres
 ENV CURRENT_VERSION=

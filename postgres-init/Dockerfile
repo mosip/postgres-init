@@ -1,4 +1,12 @@
 FROM postgres
+ARG SOURCE
+ARG COMMIT_HASH
+ARG COMMIT_ID
+ARG BUILD_TIME
+LABEL source=${SOURCE}
+LABEL commit_hash=${COMMIT_HASH}
+LABEL commit_id=${COMMIT_ID}
+LABEL build_time=${BUILD_TIME}
 
 RUN apt-get update
 RUN apt-get install -y python3 python3-xlrd
@@ -41,16 +49,6 @@ ENV ENV_VERSION_FLAG=false
 
 WORKDIR /home/mosip/repos/db_scripts/
 
-CMD if [ "$ENV_VERSION_FLAG" = "false" ]; then \
-  cd $MOSIP_DB_NAME;bash deploy.sh ; \
-  elif [ "$ENV_VERSION_FLAG" = "true" ] && [ "$MOSIP_DB_NAME" = "mosip_pms" ]; then  \
-  cd $MOSIP_DB_NAME ; \
-  echo "EXECUTING SED COMMAND"; \
-  sed -i "s/datashare.datashare/datashare-service/g" dml/pms-auth_policy.csv ; \
-  sed -i "s/datashare.datashare/datashare-service/g" dml/pms-auth_policy_h.csv ; \
-  bash deploy.sh ; \
-  else \
-  cd $MOSIP_DB_NAME;bash deploy.sh ; \
-  fi
+CMD cd $MOSIP_DB_NAME;bash deploy.sh ;
   
   

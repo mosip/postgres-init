@@ -5,6 +5,7 @@ id-repository
 id-authentication
 partner-management-services
 admin-services
-keymanager
+resident-services
 audit-manager
-#
+mosip-compliance-toolkit
+keymanager
