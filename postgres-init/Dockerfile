@@ -9,27 +9,13 @@ LABEL commit_hash=${COMMIT_HASH}
 LABEL commit_id=${COMMIT_ID}
 LABEL build_time=${BUILD_TIME}
 RUN apt-get update
-RUN apt-get install -y python3
-RUN apt-get install -y python3-pip
-RUN apt-get install -y python3-xlrd
+RUN apt-get install -y python3 python3-pip python3-xlrd git
 
-WORKDIR /home/mosip/repos/db_scripts
+WORKDIR /home/mosip/repos/
 
-COPY ./repos/commons/db_scripts .
-COPY ./repos/pre-registration/db_scripts .
-COPY ./repos/registration/db_scripts .
-COPY ./repos/id-repository/db_scripts .
-COPY ./repos/id-authentication/db_scripts .
-COPY ./repos/partner-management-services/db_scripts .
-COPY ./repos/admin-services/db_scripts .
-COPY ./repos/keymanager/db_scripts .
-COPY ./repos/audit-manager/db_scripts .
-COPY ./repos/resident-services/db_scripts .
-COPY ./repos/mosip-compliance-toolkit/db_scripts .
-COPY ./repos/digital-card-service/db_scripts .
-COPY ./repos/esignet/db_scripts .
-COPY ./repos/esignet-mock-services/db_scripts .
+ENV GIT_REPO_URL=
 
+ENV GIT_BRANCH=
 
 ENV MOSIP_DB_NAME=
 
@@ -47,8 +33,6 @@ ENV DBUSER_PWD=
 
 ENV DML_FLAG=
 
+ADD postgres-init.sh postgres-init.sh
 
-WORKDIR /home/mosip/repos/db_scripts/
-
-CMD cd $MOSIP_DB_NAME;bash deploy.sh ;
-
+ENTRYPOINT ["./postgres-init.sh" ]
