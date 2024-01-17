@@ -49,7 +49,7 @@ while IFS= read -r line; do
   then
   branch=v1.2.0.1-B3
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
-  elif [ $REPO_NAME == "resident" ]
+  elif [ $REPO_NAME == "resident-services" ]
   then
   branch=v1.2.0.1-B3
   git clone -b $1 https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
