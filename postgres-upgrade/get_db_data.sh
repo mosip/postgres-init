@@ -10,6 +10,7 @@ while IFS= read -r line; do
   branch=release-1.3.0
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "esignet" ]
+  then
   branch=release-1.2.x
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   else
