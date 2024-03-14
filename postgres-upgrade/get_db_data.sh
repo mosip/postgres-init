@@ -19,7 +19,7 @@ while IFS= read -r line; do
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "id-authentication" ]
   then
-  branch=v1.2.0.1
+  branch=release-1.2.0.1
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "keymanager" ]
   then
@@ -51,7 +51,7 @@ while IFS= read -r line; do
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "resident-services" ]
   then
-  branch=v1.2.0.1
+  branch=release-1.2.0.1
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   else
   git clone -b $1 https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
