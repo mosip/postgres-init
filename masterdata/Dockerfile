@@ -22,7 +22,7 @@ RUN apt-get -y update \
 && pip3 install -r requirements.txt \
 && groupadd -g ${container_user_gid} ${container_user_group} \
 && useradd -u ${container_user_uid} -g ${container_user_group} -s /bin/sh -m ${container_user} \
-&& chown -R ${container_user}:${container_user} /home/${container_user} \
+&& chown -R ${container_user}:${container_user} /home/${container_user} 
 
 # Select container user for all tasks
 USER ${container_user_uid}:${container_user_gid}
