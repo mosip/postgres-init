@@ -38,7 +38,9 @@ ENV DB_HOST=
 ENV DB_PORT=5432
 ENV DB_USER=postgres
 ENV DB_PWD= 
-ENV XLS_FOLDER=/home/${container_user}/mosip-data/mosip_master/xlsx
+ENV REPOSITORY=
+ENV XLS_FOLDER_PATH=mosip-data/mosip_master/xlsx
+ENV XLS_FOLDER=/home/${container_user}/${XLS_FOLDER_PATH}
 
 ENTRYPOINT ["./entrypoint.sh"]
 
