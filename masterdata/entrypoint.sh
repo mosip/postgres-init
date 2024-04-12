@@ -1,7 +1,7 @@
 #!/bin/sh
 # entrypoints.sh 
 
-git clone https://github.com/mosip/mosip-data -b $BRANCH
+git clone $REPOSITORY -b $BRANCH
 
 echo Uploading ..
 cd lib

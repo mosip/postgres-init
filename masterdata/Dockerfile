@@ -1,4 +1,6 @@
 FROM python:3.10
+
+ARG branch=develop
 ARG SOURCE
 ARG COMMIT_HASH
 ARG COMMIT_ID
@@ -8,15 +10,13 @@ LABEL commit_hash=${COMMIT_HASH}
 LABEL commit_id=${COMMIT_ID}
 LABEL build_time=${BUILD_TIME}
 
-ARG branch=develop
-
 ARG container_user=mosip
 ARG container_user_group=mosip
 ARG container_user_uid=1001
 ARG container_user_gid=1001
 
 COPY requirements.txt .
- 
+
 # Permissions, Install packages and create user
 RUN apt-get -y update \
 && pip3 install -r requirements.txt \
@@ -35,7 +35,8 @@ ENV BRANCH=
 ENV DB_HOST= 
 ENV DB_PORT=5432
 ENV DB_USER=postgres
-ENV DB_PWD= 
+ENV DB_PWD=
+ENV REPOSITORY=
 ENV XLS_FOLDER=/home/${container_user}/mosip-data/mosip_master/xlsx
 
 ENTRYPOINT ["./entrypoint.sh"]
