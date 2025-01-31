@@ -34,6 +34,8 @@ mosip_pms,1.2.0.1-B4,1.2.0.1,upgrade
 mosip_master,1.1.5.5,1.2.0.1-B1,upgrade
 mosip_master,1.2.0.1-B1,1.2.0.1-B2,upgrade
 mosip_master,1.2.0.1-B2,1.2.0.1,upgrade
+mosip_master,1.2.0.1,1.2.1.0,upgrade
+mosip_master,1.2.1.0,1.2.1.1,upgrade
 mosip_keymgr,1.1.5.5,1.2.0.1-B1,upgrade
 mosip_keymgr,1.2.0.1-B1,1.2.0.1-B2,upgrade
 mosip_keymgr,1.2.0.1-B2,1.2.0.1-B3,upgrade
@@ -46,6 +48,10 @@ mosip_resident,1.1.5.5,1.2.0.1-B1,upgrade
 mosip_resident,1.2.0.1-B1,1.2.0.1-B2,upgrade
 mosip_resident,1.2.0.1-B2,1.2.0.1-B3,upgrade
 mosip_resident,1.2.0.1-B3,1.2.0.1,upgrade
+mosip_resident,1.2.0.1,1.2.1.0,upgrade
+mosip_resident,1.2.1.0,1.2.1.1,upgrade
 mosip_hotlist,1.1.5.5,1.2.0.1-B1,upgrade
 mosip_hotlist,1.2.0.1-B1,1.2.0.1-B2,upgrade
 mosip_hotlist,1.2.0.1-B2,1.2.0.1,upgrade
+mosip_hotlist,1.2.0.1,1.2.1.0,upgrade
+mosip_hotlist,1.2.1.0,1.2.1.1,upgrade

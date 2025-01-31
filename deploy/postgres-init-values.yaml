@@ -4,67 +4,63 @@ dbUserPasswords:
 databases:
   mosip_master:
     enabled: true
-    branch: develop
+    branch: v1.2.1.1
 
   mosip_audit:
     enabled: true
-    branch: develop
+    branch: v1.2.0.1
 
   mosip_keymgr:
-    enabled: true 
-    branch: develop
+    enabled: true
+    branch: v1.2.0.1
 
   mosip_kernel:
     enabled: true
-    branch: develop
+    branch: v1.2.0.1
 
   mosip_idmap:
     enabled: true
-    branch: develop
+    branch: v1.2.0.1
 
   mosip_prereg:
     enabled: true
-    branch: develop
+    branch: v1.2.0.1
 
   mosip_idrepo:
     enabled: true
-    branch: develop
+    branch: v1.2.0.1
 
   mosip_ida:
     enabled: true
-    branch: develop
+    branch: v1.2.0.1
 
   mosip_credential:
     enabled: true
-    branch: develop
+    branch: v1.2.0.1
 
   mosip_regprc:
     enabled: true
-    branch: develop
+    branch: v1.2.0.1
 
   mosip_pms:
     enabled: true
-    branch: develop
+    branch: v1.2.0.1
 
   mosip_hotlist:
     enabled: true
-    branch: develop
+    branch: v1.2.1.1
 
   mosip_resident:
     enabled: true
-    branch: develop
-
-  mosip_otp:
-    enabled: true
-    branch: develop
+    branch: v1.2.1.1
 
   mosip_toolkit:
     enabled: false
     branch: v1.3.2
- 
+
   mosip_digitalcard:
     enabled: false
-    branch: develop
+    branch: v1.2.0.1
 
   mosip_esignet:
     enabled: false

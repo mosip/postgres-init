@@ -71,4 +71,4 @@ db:
   secret:
     name: db-common-secrets
     key: db-dbuser-password
-mosipDataGithubBranch: 1.2.0.1-B1
+mosipDataGithubBranch: 1.2.2.0
