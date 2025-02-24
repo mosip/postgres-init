@@ -334,3 +334,16 @@ databases:
     dml: 1
     repoUrl: https://github.com/mosip/inji-certify.git
     branch: develop
+
+  inji_verify:
+    enabled: false
+    host: "postgres-postgresql"
+    port: 5432
+    su:
+      user: postgres
+      secret:
+        name: postgres-postgresql
+        key: postgres-password
+    dml: 1
+    repoUrl: https://github.com/mosip/inji-verify.git
+    branch: develop
