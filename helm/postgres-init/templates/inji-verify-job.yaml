@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: db-verify-init-job
+  name: db-inji-verify-init-job
   labels:
     {{- include "postgres-init.labels" . | nindent 4 }}
 spec:
@@ -11,7 +11,7 @@ spec:
     metadata:
       labels:
         {{- include "postgres-init.selectorLabels" . | nindent 8 }}
-        app.kubernetes.io/name: db-verify-init-job
+        app.kubernetes.io/name: db-inji-verify-init-job
         sidecar.istio.io/inject: "false"
     spec:
       {{- with .Values.imagePullSecrets }}
@@ -43,5 +43,5 @@ spec:
 
           envFrom:
               - configMapRef:
-                  name: db-verify-init-env-config
+                  name: db-inji-verify-init-env-config
 {{- end }}
