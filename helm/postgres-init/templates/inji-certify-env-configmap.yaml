@@ -13,7 +13,7 @@ metadata:
   annotations: {{- include "common.tplvalues.render" ( dict "value" .Values.commonAnnotations "context" $ ) | nindent 4 }}
   {{- end }}
 data:
-  MOSIP_DB_NAME: mosip_certify
+  MOSIP_DB_NAME: inji_certify
   DB_SERVERIP: {{ .Values.databases.mosip_certify.host | quote }}
   DB_PORT: {{ .Values.databases.mosip_certify.port | quote }}
   SU_USER: {{ .Values.databases.mosip_certify.su.user | quote }}
