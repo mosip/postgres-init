@@ -322,7 +322,7 @@ databases:
     repoUrl: https://github.com/mosip/otp-manager.git
     branch: develop
 
-  mosip_certify:
+  inji_certify:
     enabled: false
     host: "postgres-postgresql"
     port: 5432
