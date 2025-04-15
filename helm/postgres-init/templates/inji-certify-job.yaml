@@ -1,4 +1,4 @@
-{{- if .Values.databases.mosip_certify.enabled }}
+{{- if .Values.databases.inji_certify.enabled }}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -32,8 +32,8 @@ spec:
           - name: SU_USER_PWD
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.databases.mosip_certify.su.secret.name }}
-                key: {{ .Values.databases.mosip_certify.su.secret.key }}
+                name: {{ .Values.databases.inji_certify.su.secret.name }}
+                key: {{ .Values.databases.inji_certify.su.secret.key }}
 
           - name: DBUSER_PWD
             valueFrom:
