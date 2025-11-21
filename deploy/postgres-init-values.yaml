@@ -5,18 +5,27 @@ databases:
   mosip_master:
     enabled: true
     branch: release-1.3.x
+    host: "postgres-postgresql.postgres"
+    port: 5432
+
 
   mosip_audit:
     enabled: true
     branch: release-1.3.x
+    host: "postgres-postgresql.postgres"
+    port: 5432
 
   mosip_keymgr:
     enabled: true 
     branch: release-1.3.x
+    host: "postgres-postgresql.postgres"
+    port: 5432
 
   mosip_kernel:
     enabled: true
     branch: release-1.3.x
+    host: "postgres-postgresql.postgres"
+    port: 5432
 
   mosip_idmap:
     enabled: true
