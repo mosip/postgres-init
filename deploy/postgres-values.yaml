@@ -5,12 +5,12 @@ primary:
     max_wal_senders=20
     max_replication_slots=10
   resources:
-    limits: {}
-    #   cpu: 250m
-    #   memory: 1Gi
+    limits:
+      cpu: 1500m
+      memory: 2000Mi
     requests:
-      cpu: 3000m
-      memory: 3000Mi
+      cpu: 1500m
+      memory: 2000Mi
 audit:
   logHostname: true
   logConnections: true
@@ -22,3 +22,16 @@ audit:
   logTimezone: ""
 image:
   debug: true
+# Custom resources using extraDeploy
+extraDeploy:
+  - apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: postgres-setup-config
+      namespace: '{{ .Release.Namespace }}'
+      labels:
+        app.kubernetes.io/instance: '{{ .Release.Name }}'
+        app.kubernetes.io/managed-by: '{{ .Release.Service }}'
+    data:
+      mosip-database-hostname-override: "postgres-postgresql.postgres"
+      mosip-database-port-override: "5432"
