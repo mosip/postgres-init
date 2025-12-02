@@ -26,6 +26,7 @@ COPY ./repos/keymanager/db_upgrade_scripts .
 COPY ./repos/audit-manager/db_upgrade_scripts .
 COPY ./repos/resident-services/db_upgrade_scripts .
 COPY ./repos/otp-manager/db_upgrade_scripts .
+COPY ./repos/digital-card-service/db_upgrade_scripts .
 
 ENV MOSIP_DB_NAME=
 ENV DB_SERVERIP=
