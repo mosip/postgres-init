@@ -10,3 +10,4 @@ partner-management-services
 pre-registration
 registration
 resident
+otp-manager
