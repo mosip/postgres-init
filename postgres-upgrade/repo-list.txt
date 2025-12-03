@@ -9,6 +9,6 @@ id-repository
 partner-management-services
 pre-registration
 registration
-resident
-otp-manager
+resident-services
 digital-card-service
+otp-manager
