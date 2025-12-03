@@ -11,3 +11,4 @@ pre-registration
 registration
 resident-services
 digital-card-service
+otp-manager
