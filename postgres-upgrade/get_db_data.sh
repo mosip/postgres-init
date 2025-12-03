@@ -57,6 +57,10 @@ while IFS= read -r line; do
   then
   branch=release-1.3.x
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
+  elif [ $REPO_NAME == "otp-manager" ]
+  then
+  branch=release-1.3.x
+  git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   else
   git clone -b $1 https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   fi
