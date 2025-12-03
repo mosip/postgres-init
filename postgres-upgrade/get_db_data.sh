@@ -11,31 +11,31 @@ while IFS= read -r line; do
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "esignet" ]
   then
-  branch=v1.3.0
+  branch=v1.6.2
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "commons" ]
   then
-  branch=v1.2.0.1
+  branch=release-1.3.x
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "id-authentication" ]
   then
-  branch=v1.2.0.1
+  branch=release-1.3.x
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "keymanager" ]
   then
-  branch=v1.2.0.1
+  branch=release-1.3.x
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "audit-manager" ]
   then
-  branch=v1.2.0.1
+  branch=release-1.3.x
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "admin-services" ]
   then
-  branch=v1.2.0.1
+  branch=release-1.3.x
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "id-repository" ]
   then
-  branch=v1.2.0.1
+  branch=release-1.3.x
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "partner-management-services" ]
   then
@@ -43,15 +43,15 @@ while IFS= read -r line; do
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "pre-registration" ]
   then
-  branch=v1.2.0.1
+  branch=release-1.3.x
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "registration" ]
   then
-  branch=v1.2.0.1
+  branch=release-1.3.x
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "resident-services" ]
   then
-  branch=v1.2.0.1
+  branch=release-1.3.x
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   else
   git clone -b $1 https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
