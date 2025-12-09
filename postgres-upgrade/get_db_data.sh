@@ -39,7 +39,7 @@ while IFS= read -r line; do
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "partner-management-services" ]
   then
-  branch=v1.2.2.2
+  branch=release-1.2.2.x
   git clone -b $branch https://github.com/mosip/$REPO_NAME.git ./repos/$REPO_NAME
   elif [ $REPO_NAME == "pre-registration" ]
   then
