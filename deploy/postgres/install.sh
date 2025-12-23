@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 NS=postgres
-ISTIO_ADDONS_CHART_VERSION=1.0.0-develop
+ISTIO_ADDONS_CHART_VERSION=1.0.0
 
 helm repo update
 echo Create $NS namespace
@@ -17,7 +17,7 @@ kubectl label ns $NS istio-injection=enabled --overwrite
 function installing_postgres() {
   echo Installing  Postgres
   helm -n $NS install postgres bitnami/postgresql \
-  --set image.repository="mosipint/postgresql" \
+  --set image.repository="mosipid/postgresql" \
   --set image.tag="16.0.0-debian-11-r13" \
   --version 13.1.5 -f values.yaml --wait
   echo Installed Postgres
