@@ -24,10 +24,10 @@ jobSecurityContext: {}
 # fsGroup: 2000
 
 securityContext: {}
-# capabilities:
-#   drop:
-#   - ALL
-# readOnlyRootFilesystem: true
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
 # runAsNonRoot: true
 # runAsUser: 1000
 
@@ -47,34 +47,48 @@ ingress:
   #    hosts:
   #      - chart-example.local
 resources: {}
-# We usually recommend not to specify default resources and to leave this as a conscious
-# choice for the user. This also increases chances charts run on environments with little
-# resources, such as Minikube. If you do want to specify resources, uncomment the following
-# lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-# limits:
-#   cpu: 100m
-#   memory: 128Mi
-# requests:
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
 #   cpu: 100m
 #   memory: 128Mi
 
 nodeSelector: {}
 tolerations: []
 affinity: {}
-## Some common set of users are created across all postgres servers with same password.  TODO: change this later.
-## These user names are currently hardcoded in the sql scripts, so can't change from here.
+
+## Some common set of users are created across all postgres servers with same password.
 dbUserPasswords:
   dbuserPassword: ""
-## Superuser secret is required to setup DB. It is assumed that the secret was created while creating
-## DB server(s) and is available in the same namespace.
-## host: It could be in-cluster service name of postgres if running as pods inside cluster.
-## su.user: Assumed 'postgres'. Change manually if you have given a different postgres superuser name
-## su.secret.name: Default name 'postgres-postgresql' if you install bitnami postgres within cluster.
-## su.secret.key: Default key 'postgres-password' if you install bitnami postgres within cluster.
-## dml: whether dml is available to be loaded 0/1. Refer SQL scripts in module repos.
+
+## Per-database configuration:
+##
+## enabled:        Set to true to run the init job for this database.
+## scriptsDir:     Folder name inside db_scripts/ in the git repo. MUST match the repo
+##                 structure exactly (e.g. mosip_master). Do NOT change this unless the
+##                 repo folder is renamed.
+## dbName:         Actual Postgres database name to create. Can be anything
+##                 (e.g. mosip_master, mosip_master02). This is what gets created in Postgres.
+## dbUser:         The DB user created/used by deploy.sh (DB_UNAME). Can be any name
+##                 (e.g. masteruser, masteruser02).
+## defaultDb:      Default postgres DB to connect to before creating the target DB.
+## host:           In-cluster service name of postgres.
+## port:           Postgres port (default 5432).
+## su.user:        Postgres superuser name (default: postgres).
+## su.secret.name: K8s secret name holding the superuser password.
+## su.secret.key:  Key inside the secret for the superuser password.
+## dml:            Whether DML scripts should be loaded: 0 (skip) or 1 (load).
+## repoUrl:        Git repo URL containing the db_scripts/ folder.
+## branch:         Git branch to clone from.
+
 databases:
   mosip_master:
     enabled: false
+    scriptsDir: mosip_master      # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_master          # customize e.g. mosip_master02
+    dbUser: masteruser            # customize e.g. masteruser02
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -87,6 +101,10 @@ databases:
     branch: v1.3.0
   mosip_audit:
     enabled: false
+    scriptsDir: mosip_audit
+    dbName: mosip_audit
+    dbUser: audituser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -99,6 +117,10 @@ databases:
     branch: v1.3.0
   mosip_keymgr:
     enabled: false
+    scriptsDir: mosip_keymgr
+    dbName: mosip_keymgr
+    dbUser: keymgruser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -111,6 +133,10 @@ databases:
     branch: v1.3.0
   mosip_kernel:
     enabled: false
+    scriptsDir: mosip_kernel
+    dbName: mosip_kernel
+    dbUser: kerneluser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -123,6 +149,10 @@ databases:
     branch: v1.3.0
   mosip_idmap:
     enabled: false
+    scriptsDir: mosip_idmap
+    dbName: mosip_idmap
+    dbUser: idmapuser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -135,6 +165,10 @@ databases:
     branch: v1.3.0
   mosip_prereg:
     enabled: false
+    scriptsDir: mosip_prereg
+    dbName: mosip_prereg
+    dbUser: prereguser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -147,6 +181,10 @@ databases:
     branch: v1.3.0
   mosip_idrepo:
     enabled: false
+    scriptsDir: mosip_idrepo
+    dbName: mosip_idrepo
+    dbUser: idrepouser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -159,6 +197,10 @@ databases:
     branch: v1.3.0
   mosip_ida:
     enabled: false
+    scriptsDir: mosip_ida
+    dbName: mosip_ida
+    dbUser: idauser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -171,6 +213,10 @@ databases:
     branch: v1.3.0
   mosip_credential:
     enabled: false
+    scriptsDir: mosip_credential
+    dbName: mosip_credential
+    dbUser: credentialuser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -183,6 +229,10 @@ databases:
     branch: v1.3.0
   mosip_regprc:
     enabled: false
+    scriptsDir: mosip_regprc
+    dbName: mosip_regprc
+    dbUser: regprcuser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -195,10 +245,14 @@ databases:
     branch: v1.3.0
   mosip_pms:
     enabled: false
+    scriptsDir: mosip_pms
+    dbName: mosip_pms
+    dbUser: pmsuser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
-    # Note: This flag is used update datashare domain in partner policies according to deployment version( i.e v2/v3 )
-    # Set flag ENV_VERSION_FLAG to true for v2 envs and false to v3 envs.
+    # Note: This flag is used to update datashare domain in partner policies according to deployment version (i.e v2/v3)
+    # Set flag ENV_VERSION_FLAG to true for v2 envs and false for v3 envs.
     ENV_VERSION_FLAG: false
     su:
       user: postgres
@@ -210,6 +264,10 @@ databases:
     branch: v1.2.2.2
   mosip_hotlist:
     enabled: false
+    scriptsDir: mosip_hotlist
+    dbName: mosip_hotlist
+    dbUser: hotlistuser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -222,6 +280,10 @@ databases:
     branch: v1.3.0
   mosip_resident:
     enabled: false
+    scriptsDir: mosip_resident
+    dbName: mosip_resident
+    dbUser: residentuser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -234,6 +296,10 @@ databases:
     branch: v1.3.0
   mosip_toolkit:
     enabled: false
+    scriptsDir: mosip_toolkit
+    dbName: mosip_toolkit
+    dbUser: toolkituser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -246,6 +312,10 @@ databases:
     branch: v1.4.2
   mosip_digitalcard:
     enabled: false
+    scriptsDir: mosip_digitalcard
+    dbName: mosip_digitalcard
+    dbUser: digitalcarduser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -258,6 +328,10 @@ databases:
     branch: v1.3.0
   mosip_esignet:
     enabled: false
+    scriptsDir: mosip_esignet
+    dbName: mosip_esignet
+    dbUser: esignetuser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -270,6 +344,10 @@ databases:
     branch: v1.4.1
   mosip_mockidentitysystem:
     enabled: false
+    scriptsDir: mosip_mockidentitysystem
+    dbName: mosip_mockidentitysystem
+    dbUser: mockidentityuser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -282,6 +360,10 @@ databases:
     branch: v0.9.3
   mosip_otp:
     enabled: false
+    scriptsDir: mosip_otp
+    dbName: mosip_otp
+    dbUser: otpuser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -294,6 +376,10 @@ databases:
     branch: v1.3.0
   inji_certify:
     enabled: false
+    scriptsDir: inji_certify
+    dbName: inji_certify
+    dbUser: injicertifyuser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -306,6 +392,10 @@ databases:
     branch: v0.12.2
   inji_verify:
     enabled: false
+    scriptsDir: inji_verify
+    dbName: inji_verify
+    dbUser: injiverifyuser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
@@ -318,6 +408,10 @@ databases:
     branch: v0.15.1
   inji_mimoto:
     enabled: false
+    scriptsDir: inji_mimoto
+    dbName: inji_mimoto
+    dbUser: injimimotouser
+    defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
     su:
