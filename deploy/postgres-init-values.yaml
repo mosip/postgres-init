@@ -21,9 +21,9 @@ databases:
 
   mosip_audit:
     enabled: false
-    scriptsDir: mosip_audit
-    dbName: mosip_audit
-    dbUser: audituser
+    scriptsDir: mosip_audit       # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_audit           # customize e.g. mosip_audit02
+    dbUser: audituser             # customize e.g. audituser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -38,9 +38,9 @@ databases:
 
   mosip_keymgr:
     enabled: false
-    scriptsDir: mosip_keymgr
-    dbName: mosip_keymgr
-    dbUser: keymgruser
+    scriptsDir: mosip_keymgr      # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_keymgr          # customize e.g. mosip_keymgr02
+    dbUser: keymgruser            # customize e.g. keymgruser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -55,9 +55,9 @@ databases:
 
   mosip_kernel:
     enabled: false
-    scriptsDir: mosip_kernel
-    dbName: mosip_kernel
-    dbUser: kerneluser
+    scriptsDir: mosip_kernel       # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_kernel           # customize e.g. mosip_kernel02
+    dbUser: kerneluser             # customize e.g. kerneluser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -72,9 +72,9 @@ databases:
 
   mosip_idmap:
     enabled: false
-    scriptsDir: mosip_idmap
-    dbName: mosip_idmap
-    dbUser: idmapuser
+    scriptsDir: mosip_idmap        # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_idmap            # customize e.g. mosip_idmap02
+    dbUser: idmapuser              # customize e.g. idmapuser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -89,9 +89,9 @@ databases:
 
   mosip_prereg:
     enabled: false
-    scriptsDir: mosip_prereg
-    dbName: mosip_prereg
-    dbUser: prereguser
+    scriptsDir: mosip_prereg       # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_prereg           # customize e.g. mosip_prereg02
+    dbUser: prereguser             # customize e.g. prereguser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -106,9 +106,9 @@ databases:
 
   mosip_idrepo:
     enabled: false
-    scriptsDir: mosip_idrepo
-    dbName: mosip_idrepo
-    dbUser: idrepouser
+    scriptsDir: mosip_idrepo       # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_idrepo           # customize e.g. mosip_idrepo02
+    dbUser: idrepouser             # customize e.g. idrepouser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -123,9 +123,9 @@ databases:
 
   mosip_ida:
     enabled: false
-    scriptsDir: mosip_ida
-    dbName: mosip_ida
-    dbUser: idauser
+    scriptsDir: mosip_ida          # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_ida              # customize e.g. mosip_ida02
+    dbUser: idauser                # customize e.g. idauser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -140,9 +140,9 @@ databases:
 
   mosip_credential:
     enabled: false
-    scriptsDir: mosip_credential
-    dbName: mosip_credential
-    dbUser: credentialuser
+    scriptsDir: mosip_credential   # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_credential       # customize e.g. mosip_credential02
+    dbUser: credentialuser         # customize e.g. credentialuser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -157,9 +157,9 @@ databases:
 
   mosip_regprc:
     enabled: false
-    scriptsDir: mosip_regprc
-    dbName: mosip_regprc
-    dbUser: regprcuser
+    scriptsDir: mosip_regprc       # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_regprc           # customize e.g. mosip_regprc02
+    dbUser: regprcuser             # customize e.g. regprcuser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -174,9 +174,9 @@ databases:
 
   mosip_pms:
     enabled: false
-    scriptsDir: mosip_pms
-    dbName: mosip_pms
-    dbUser: pmsuser
+    scriptsDir: mosip_pms          # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_pms              # customize e.g. mosip_pms02
+    dbUser: pmsuser                # customize e.g. pmsuser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -194,9 +194,9 @@ databases:
 
   mosip_hotlist:
     enabled: false
-    scriptsDir: mosip_hotlist
-    dbName: mosip_hotlist
-    dbUser: hotlistuser
+    scriptsDir: mosip_hotlist      # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_hotlist          # customize e.g. mosip_hotlist02
+    dbUser: hotlistuser            # customize e.g. hotlistuser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -211,9 +211,9 @@ databases:
 
   mosip_resident:
     enabled: false
-    scriptsDir: mosip_resident
-    dbName: mosip_resident
-    dbUser: residentuser
+    scriptsDir: mosip_resident     # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_resident         # customize e.g. mosip_resident02
+    dbUser: residentuser           # customize e.g. residentuser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -228,9 +228,9 @@ databases:
 
   mosip_toolkit:
     enabled: false
-    scriptsDir: mosip_toolkit
-    dbName: mosip_toolkit
-    dbUser: toolkituser
+    scriptsDir: mosip_toolkit      # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_toolkit          # customize e.g. mosip_toolkit02
+    dbUser: toolkituser            # customize e.g. toolkituser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -245,9 +245,9 @@ databases:
 
   mosip_digitalcard:
     enabled: false
-    scriptsDir: mosip_digitalcard
-    dbName: mosip_digitalcard
-    dbUser: digitalcarduser
+    scriptsDir: mosip_digitalcard  # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_digitalcard      # customize e.g. mosip_digitalcard02
+    dbUser: digitalcarduser        # customize e.g. digitalcarduser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -262,9 +262,9 @@ databases:
 
   mosip_esignet:
     enabled: false
-    scriptsDir: mosip_esignet
-    dbName: mosip_esignet
-    dbUser: esignetuser
+    scriptsDir: mosip_esignet      # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_esignet          # customize e.g. mosip_esignet02
+    dbUser: esignetuser            # customize e.g. esignetuser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -279,9 +279,9 @@ databases:
 
   mosip_mockidentitysystem:
     enabled: false
-    scriptsDir: mosip_mockidentitysystem
-    dbName: mosip_mockidentitysystem
-    dbUser: mockidentityuser
+    scriptsDir: mosip_mockidentitysystem  # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_mockidentitysystem      # customize e.g. mosip_mockidentitysystem02
+    dbUser: mockidentityuser              # customize e.g. mockidentityuser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -296,9 +296,9 @@ databases:
 
   mosip_otp:
     enabled: false
-    scriptsDir: mosip_otp
-    dbName: mosip_otp
-    dbUser: otpuser
+    scriptsDir: mosip_otp          # fixed - must match db_scripts/ folder in repo
+    dbName: mosip_otp              # customize e.g. mosip_otp02
+    dbUser: otpuser                # customize e.g. otpuser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -313,9 +313,9 @@ databases:
 
   inji_certify:
     enabled: false
-    scriptsDir: inji_certify
-    dbName: inji_certify
-    dbUser: injicertifyuser
+    scriptsDir: inji_certify       # fixed - must match db_scripts/ folder in repo
+    dbName: inji_certify           # customize e.g. inji_certify02
+    dbUser: injicertifyuser        # customize e.g. injicertifyuser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -330,9 +330,9 @@ databases:
 
   inji_verify:
     enabled: false
-    scriptsDir: inji_verify
-    dbName: inji_verify
-    dbUser: injiverifyuser
+    scriptsDir: inji_verify        # fixed - must match db_scripts/ folder in repo
+    dbName: inji_verify            # customize e.g. inji_verify02
+    dbUser: injiverifyuser         # customize e.g. injiverifyuser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
@@ -347,9 +347,9 @@ databases:
 
   inji_mimoto:
     enabled: false
-    scriptsDir: inji_mimoto
-    dbName: inji_mimoto
-    dbUser: injimimotouser
+    scriptsDir: inji_mimoto        # fixed - must match db_scripts/ folder in repo
+    dbName: inji_mimoto            # customize e.g. inji_mimoto02
+    dbUser: injimimotouser         # customize e.g. injimimotouser02
     defaultDb: postgres
     host: "postgres-postgresql"
     port: 5432
