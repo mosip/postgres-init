@@ -3,7 +3,7 @@ dbUserPasswords:
 
 databases:
   mosip_master:
-    enabled: false
+    enabled: true
     scriptsDir: mosip_master      # fixed - must match db_scripts/ folder in repo
     dbName: mosip_master          # customize e.g. mosip_master02
     dbUser: masteruser            # customize e.g. masteruser02
@@ -20,7 +20,7 @@ databases:
     branch: develop
 
   mosip_audit:
-    enabled: false
+    enabled: true
     scriptsDir: mosip_audit       # fixed - must match db_scripts/ folder in repo
     dbName: mosip_audit           # customize e.g. mosip_audit02
     dbUser: audituser             # customize e.g. audituser02
@@ -37,7 +37,7 @@ databases:
     branch: develop
 
   mosip_keymgr:
-    enabled: false
+    enabled: true
     scriptsDir: mosip_keymgr      # fixed - must match db_scripts/ folder in repo
     dbName: mosip_keymgr          # customize e.g. mosip_keymgr02
     dbUser: keymgruser            # customize e.g. keymgruser02
@@ -54,7 +54,7 @@ databases:
     branch: develop
 
   mosip_kernel:
-    enabled: false
+    enabled: true
     scriptsDir: mosip_kernel       # fixed - must match db_scripts/ folder in repo
     dbName: mosip_kernel           # customize e.g. mosip_kernel02
     dbUser: kerneluser             # customize e.g. kerneluser02
@@ -71,7 +71,7 @@ databases:
     branch: develop
 
   mosip_idmap:
-    enabled: false
+    enabled: true
     scriptsDir: mosip_idmap        # fixed - must match db_scripts/ folder in repo
     dbName: mosip_idmap            # customize e.g. mosip_idmap02
     dbUser: idmapuser              # customize e.g. idmapuser02
@@ -88,7 +88,7 @@ databases:
     branch: develop
 
   mosip_prereg:
-    enabled: false
+    enabled: true
     scriptsDir: mosip_prereg       # fixed - must match db_scripts/ folder in repo
     dbName: mosip_prereg           # customize e.g. mosip_prereg02
     dbUser: prereguser             # customize e.g. prereguser02
@@ -105,7 +105,7 @@ databases:
     branch: develop
 
   mosip_idrepo:
-    enabled: false
+    enabled: true
     scriptsDir: mosip_idrepo       # fixed - must match db_scripts/ folder in repo
     dbName: mosip_idrepo           # customize e.g. mosip_idrepo02
     dbUser: idrepouser             # customize e.g. idrepouser02
@@ -122,7 +122,7 @@ databases:
     branch: develop
 
   mosip_ida:
-    enabled: false
+    enabled: true
     scriptsDir: mosip_ida          # fixed - must match db_scripts/ folder in repo
     dbName: mosip_ida              # customize e.g. mosip_ida02
     dbUser: idauser                # customize e.g. idauser02
@@ -139,7 +139,7 @@ databases:
     branch: develop
 
   mosip_credential:
-    enabled: false
+    enabled: true
     scriptsDir: mosip_credential   # fixed - must match db_scripts/ folder in repo
     dbName: mosip_credential       # customize e.g. mosip_credential02
     dbUser: credentialuser         # customize e.g. credentialuser02
@@ -156,7 +156,7 @@ databases:
     branch: develop
 
   mosip_regprc:
-    enabled: false
+    enabled: true
     scriptsDir: mosip_regprc       # fixed - must match db_scripts/ folder in repo
     dbName: mosip_regprc           # customize e.g. mosip_regprc02
     dbUser: regprcuser             # customize e.g. regprcuser02
@@ -173,7 +173,7 @@ databases:
     branch: develop
 
   mosip_pms:
-    enabled: false
+    enabled: true
     scriptsDir: mosip_pms          # fixed - must match db_scripts/ folder in repo
     dbName: mosip_pms              # customize e.g. mosip_pms02
     dbUser: pmsuser                # customize e.g. pmsuser02
@@ -193,7 +193,7 @@ databases:
     branch: develop
 
   mosip_hotlist:
-    enabled: false
+    enabled: true
     scriptsDir: mosip_hotlist      # fixed - must match db_scripts/ folder in repo
     dbName: mosip_hotlist          # customize e.g. mosip_hotlist02
     dbUser: hotlistuser            # customize e.g. hotlistuser02
@@ -210,7 +210,7 @@ databases:
     branch: develop
 
   mosip_resident:
-    enabled: false
+    enabled: true
     scriptsDir: mosip_resident     # fixed - must match db_scripts/ folder in repo
     dbName: mosip_resident         # customize e.g. mosip_resident02
     dbUser: residentuser           # customize e.g. residentuser02
@@ -227,7 +227,7 @@ databases:
     branch: develop
 
   mosip_toolkit:
-    enabled: false
+    enabled: true
     scriptsDir: mosip_toolkit      # fixed - must match db_scripts/ folder in repo
     dbName: mosip_toolkit          # customize e.g. mosip_toolkit02
     dbUser: toolkituser            # customize e.g. toolkituser02
@@ -244,7 +244,7 @@ databases:
     branch: develop
 
   mosip_digitalcard:
-    enabled: false
+    enabled: true
     scriptsDir: mosip_digitalcard  # fixed - must match db_scripts/ folder in repo
     dbName: mosip_digitalcard      # customize e.g. mosip_digitalcard02
     dbUser: digitalcarduser        # customize e.g. digitalcarduser02
@@ -295,7 +295,7 @@ databases:
     branch: develop
 
   mosip_otp:
-    enabled: false
+    enabled: true
     scriptsDir: mosip_otp          # fixed - must match db_scripts/ folder in repo
     dbName: mosip_otp              # customize e.g. mosip_otp02
     dbUser: otpuser                # customize e.g. otpuser02
