@@ -131,7 +131,7 @@ kubectl apply -f /tmp/postgresql-secrets/postgres-setup-config.yml
 
 ## Workflow Overview
 
-```
+```text
 Edit hosts.ini → run-postgresql-playbook.sh → PostgreSQL Ready
                           ↓
                   Kubernetes files generated
