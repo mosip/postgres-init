@@ -9,6 +9,8 @@ fi
 NS=postgres
 ISTIO_ADDONS_CHART_VERSION=1.0.0
 
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo add mosip https://mosip.github.io/mosip-helm
 helm repo update
 echo Create $NS namespace
 kubectl create namespace $NS
