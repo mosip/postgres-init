@@ -52,8 +52,12 @@ jobs:
 
       - name: Setup branch and env
         run: |
-          # Strip git ref prefix from version
-          echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')" >> $GITHUB_ENV
+          # For PRs use head_ref (source branch); for push/release strip the ref
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            echo "BRANCH_NAME=${{ github.head_ref }}" >> $GITHUB_ENV
+          else
+            echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')" >> $GITHUB_ENV
+          fi
           echo "GPG_TTY=$(tty)" >> $GITHUB_ENV
 
       - name: Clone DB upgrade scripts
