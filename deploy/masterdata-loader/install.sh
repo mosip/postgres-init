@@ -1,5 +1,5 @@
 #!/bin/bash
-# Loads sample masterdata 
+# Loads sample masterdata
 ## Usage: ./install.sh [kubeconfig]
 
 if [ $# -ge 1 ] ; then
@@ -29,8 +29,8 @@ if [ $yn = "Y" ]
    helm repo update
 
    echo Copy configmaps
-   sed -i 's/\r$//' copy-secrets-masterdata.sh
-   ./copy-secrets-masterdata.sh
+   sed -i 's/\r$//' copy_secret.sh
+   ./copy_secret.sh
 
    echo Loading masterdata
    helm -n $NS install masterdata-loader mosip/masterdata-loader \
