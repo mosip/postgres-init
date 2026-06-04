@@ -65,13 +65,13 @@ jobs:
           cd ${{ env.SERVICE_LOCATION }}
           bash ./get_db_data.sh "${{ env.BRANCH_NAME }}"
       - name: Ready the DB upgrade scripts
-        if: ${{ github.ref_name != 'master' && github.ref_name != 'main' }}
+        if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'master' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref_name != 'master' && github.ref_name != 'main') }}
         run: |
           cd ${{ env.SERVICE_LOCATION }}
           find ./repos/*/db_upgrade_scripts/  -type f  -exec zip ${{ env.BUILD_ARTIFACT }}.zip {} +
 
       - name: Upload the upgrade scripts
-        if: ${{ github.ref_name != 'master' && github.ref_name != 'main' }}
+        if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'master' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref_name != 'master' && github.ref_name != 'main') }}
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.BUILD_ARTIFACT }}
@@ -79,7 +79,7 @@ jobs:
 
   build-upgrade-dockers:
     needs: get-db-upgrade-scripts
-    if: ${{ github.ref_name != 'master' && github.ref_name != 'main' }}
+    if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'master' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref_name != 'master' && github.ref_name != 'main') }}
     strategy:
       matrix:
         include:
