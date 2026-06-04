@@ -65,13 +65,13 @@ jobs:
           cd ${{ env.SERVICE_LOCATION }}
           bash ./get_db_data.sh ${{ env.BRANCH_NAME }}
       - name: Ready the DB upgrade scripts
-        if: ${{ !contains(github.ref, 'master') || !contains(github.ref, 'main') }}
+        if: ${{ github.ref != 'refs/heads/master' && github.ref != 'refs/heads/main' }}
         run: |
           cd ${{ env.SERVICE_LOCATION }}
           find ./repos/*/db_upgrade_scripts/  -type f  -exec zip ${{ env.BUILD_ARTIFACT }}.zip {} +
 
       - name: Upload the upgrade scripts
-        if: ${{ !contains(github.ref, 'master') || !contains(github.ref, 'main') }}
+        if: ${{ github.ref != 'refs/heads/master' && github.ref != 'refs/heads/main' }}
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.BUILD_ARTIFACT }}

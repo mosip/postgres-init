@@ -258,7 +258,7 @@ if command -v ansible &> /dev/null; then
 echo "  • PostgreSQL Port: $pg_port"
         echo ""
         echo "You can now run your PostgreSQL automation scripts:"
-        echo "  ./ansible-postgresql.sh"
+        echo "  ./run-postgresql-playbook.sh"
         echo ""
         echo "Or test with manual commands like:"
         echo "  ansible-playbook -i $INVENTORY_FILE your-playbook.yml"
