@@ -8,7 +8,7 @@ fi
 
 function initialize_db() {
   NS=postgres
-  CHART_VERSION=1.3.1
+  CHART_VERSION=1.3.1-develop
   helm repo update
   
   # Ask user about PostgreSQL deployment type
